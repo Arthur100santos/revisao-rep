@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        main{
+            /* FLEXBOX */
+            /* display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; */
+
+            /* GRID */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-content: center;
+            height: 100vh;
+            gap: 1rem;
+        }
+
+        section{
+            display: flex;
+            justify-content: end;
+            
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <img src="../imagem.png" alt="">
+        </section>
+        <article>
+            <h1>Programa Tabuada</h1>
+            <p>
+                numero: <input type="text" id="inNumero">
+            </p>
+            <button type="button" id="btnMostrar">Mostrar Tabuada</button>
+            <h2 id="outTabuada"></h2>
+        </article>
+    </main>
+    <script>
+        // Referencia de todos elementos necessarios
+
+        const inNumero = document.querySelector('#inNumero')
+        const btnMostrar = document.querySelector('#btnMostrar')
+        const outTabudada = document.querySelector('#outTabuada')
+
+        btnMostrar.addEventListener('click', ()=>{
+            let numero = Number(inNumero.value)
+            // console.log(typeof  numero)
+
+            if(numero === 0 || isNaN(numero)){
+                alert("Digite um número valido")
+                inNumero.focus()
+                return
+            }
+
+            let resposta = ''
+
+            for(let i = 1; i <= 10; i++){
+                resposta = `${resposta+numero} x ${i} = ${numero * i} <br>`
+            }
+
+            // outTabudada.textContent = `${resposta}`
+            outTabuada.innerHTML = `${resposta}`
+        })
+    </script>
+</body>
+</html>

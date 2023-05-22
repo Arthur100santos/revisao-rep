@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números decrescentes</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        main{
+            /* FLEXBOX */
+            /* display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; */
+
+            /* GRID */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-content: center;
+            height: 100vh;
+            gap: 1rem;
+        }
+
+        section{
+            display: flex;
+            justify-content: end;
+            
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <img src="../imagem.png" alt="">
+        </section>
+        <article>
+            <h1>Programa Números decrescentes</h1>
+            <p>
+                numero: <input type="text" id="inNumero">
+            </p>
+            <button type="button" id="btnMostrar">Descer até 1</button>
+            <h2 id="outResult"></h2>
+        </article>
+    </main>
+
+    <script>
+        let btn = document.querySelector('#btnMostrar')
+        var number = document.querySelector('#inNumero')
+        let resultado = document.querySelector('#outResult')
+
+        btn.addEventListener('click', () =>{
+            if(number.value == 0 || isNaN(number.value)){
+                alert('Digite um número valido')
+                input.focus()
+                return
+            }
+
+            let resposta = ''
+            for (let i = number.value; i >= 1; i--){
+                resposta = number.value - i
+                // console.log(resposta);
+            }
+            resultado.innerHTML= `${resposta}`
+        })
+    </script>
+</body>
+</html>
